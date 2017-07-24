@@ -9,7 +9,11 @@ Autobuilds are available on [Docker
 hub](https://hub.docker.com/r/ijc25/git-cache-proxy) and listen on
 port 9419, which you should map to your host e.g:
 
-    docker run -p 9419:9419 ijc25/git-cache-proxy:latest
+    docker run -d -p 9419:9419 --name git-cache-proxy ijc25/git-cache-proxy:latest
+
+Or to persist the cache over container upgrades:
+
+    docker run -d -p 9419:9419 --name git-cache-proxy -v git-cache-proxy:/var/cache/git-cache-proxy ijc25/git-cache-proxy:latest
 
 ## Using
 
